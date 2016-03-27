@@ -1,0 +1,11 @@
+- name: Prepare inputrc config files
+  template: >
+    src=inputrc.j2
+    dest="{{ astrap_dir }}/.inputrc"
+
+- name: Install inputrc
+  file: >
+    state=link
+    src="{{ astrap_dir }}/.inputrc"
+    dest="{{ homedir }}/.inputrc"
+

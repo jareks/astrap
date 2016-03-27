@@ -17,6 +17,16 @@
   when:    use_vim
   tags:    [vim]
 
+- include: vim_in_shell.yml
+  when:    use_vim_in_shell
+  tags:    [vim_in_shell]
+
+- include: nodejs.yml
+  when:    use_nodejs
+  tags:    [nodejs]
+
+
+# GUI based tasks
 - include: gui.yml
   when:    use_gui
   tags:    [gui]

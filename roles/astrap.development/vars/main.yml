@@ -1,4 +1,4 @@
 ---
 # vars file for astrap.development
 homedir:    "/home/{{ ansible_user_id }}"
-astrap_dir: "{{homedir}}/astrap"
+astrap_dir: "{{homedir}}/astrap/local"

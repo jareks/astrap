@@ -2,10 +2,10 @@
   template: >
     src=bash_ext.j2
     dest="{{ astrap_dir }}/.bash_ext"
-  
-- name: Link bash_ext
+
+- name: Install bash_ext
   file: >
     state=link
     src="{{ astrap_dir }}/.bash_ext"
     dest="{{ homedir }}/.bash_ext"
-    
+
