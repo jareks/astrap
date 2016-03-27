@@ -1,11 +1,25 @@
-- name: Prepare bash_ext
+- name: Prepare bash configs
   template: >
-    src=bash_ext.j2
-    dest="{{ astrap_dir }}/.bash_ext"
+    src={{item}}.j2
+    dest="{{astrap_dir}}/.{{item}}"
+  with_items:
+    - bash_ext
+    - bash_local
 
-- name: Install bash_ext
+- name: Install bash configs
   file: >
     state=link
-    src="{{ astrap_dir }}/.bash_ext"
-    dest="{{ homedir }}/.bash_ext"
+    src="{{astrap_dir}}/.{{item}}"
+    dest="{{homedir}}/.{{item}}"
+  with_items:
+    - bash_ext
+    - bash_local
 
+- name: Add bash configs to .bashrc
+  lineinfile: >
+    regexp="^source ~/.{{item}}"
+    line="source ~/.{{item}}"
+    dest="{{homedir}}/.bashrc"
+  with_items:
+    - bash_ext
+    - bash_local
