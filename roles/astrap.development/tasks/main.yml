@@ -25,6 +25,10 @@
   when:    use_nodejs
   tags:    [nodejs]
 
+- include: java.yml
+  when:    use_java
+  tags:    [java]
+
 
 # GUI based tasks
 - include: gui.yml

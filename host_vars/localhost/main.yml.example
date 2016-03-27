@@ -1,6 +1,13 @@
-use_bash: True
-use_vim: True
-use_gui: True
+use_bash:         True
+use_vim:          True
+use_vim_in_shell: True
+use_nodejs:       True
+use_java:         True
+use_gui:          True
 
 git_name:  John Doe
 git_email: john.doe@example.com
+
+nodejs_version: 5.x
+
+autoaccept_java_license: False
