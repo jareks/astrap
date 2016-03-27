@@ -1,8 +1,8 @@
-- name:  Install dconf-editor
+- name:  Install additional packages for GUI system
   become: true
   apt: >
     state=installed
-    pkg="dconf-editor"
+    pkg="dconf-editor,mesa-utils"
 
 - name: Uninstall Unity webapps
   become: true
@@ -10,7 +10,7 @@
     state=absent
     pkg="unity-webapps-{{item}}"
   with_items:
-    - amazoncloudreader  
+    - amazoncloudreader
     - bbcnews
     - cnn-news
     - deezer

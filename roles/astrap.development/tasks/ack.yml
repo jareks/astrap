@@ -1,0 +1,16 @@
+- name: Install ack
+  become: True
+  apt: >
+    state=installed
+    pkg=ack-grep
+
+- name: Prepare ackrc
+  template: >
+    src=ackrc.j2
+    dest="{{astrap_dir}}/.ackrc"
+
+- name: Install ackrc
+  file: >
+    state=link
+    src="{{astrap_dir}}/.ackrc"
+    dest="{{homedir}}/.ackrc"

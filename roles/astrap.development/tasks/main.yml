@@ -2,11 +2,25 @@
 # tasks file for astrap.development
 - include: base.yml
   tags:    [base]
+
+- include: ack.yml
+  tags:    [ack]
+
+- include: git.yml
+  tags:    [git]
+
 - include: bash.yml
+  when:    use_bash
   tags:    [bash]
+
 - include: vim.yml
+  when:    use_vim
   tags:    [vim]
+
 - include: gui.yml
+  when:    use_gui
   tags:    [gui]
+
 - include: gui_vim.yml
+  when:    use_gui
   tags:    [gui]

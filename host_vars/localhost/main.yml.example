@@ -1,0 +1,6 @@
+use_bash: True
+use_vim: True
+use_gui: True
+
+git_name:  John Doe
+git_email: john.doe@example.com
