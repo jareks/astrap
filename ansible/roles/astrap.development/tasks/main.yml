@@ -1,0 +1,12 @@
+---
+# tasks file for astrap.development
+- include: base.yml
+  tags:    [base]
+- include: bash.yml
+  tags:    [bash]
+- include: vim.yml
+  tags:    [vim]
+- include: gui.yml
+  tags:    [gui]
+- include: gui_vim.yml
+  tags:    [gui]

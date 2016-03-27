@@ -1,0 +1,11 @@
+- name: Prepare bash_ext
+  template: >
+    src=bash_ext.j2
+    dest="{{ astrap_dir }}/.bash_ext"
+  
+- name: Link bash_ext
+  file: >
+    state=link
+    src="{{ astrap_dir }}/.bash_ext"
+    dest="{{ homedir }}/.bash_ext"
+    

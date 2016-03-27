@@ -1,0 +1,43 @@
+- name: Install Vim packages
+  become: true
+  apt:  update_cache=yes cache_valid_time=3600 state=installed pkg=vim,ctags,vim-scripts,vim-doc 
+
+- name: Prepare .vimrc file
+  template: >
+    src=templates/vimrc.j2
+    dest="{{astrap_dir}}/.vimrc"
+  
+- name: Install .vimrc
+  file: >
+    state=link
+    src="{{astrap_dir}}/.vimrc" 
+    path="{{homedir}}/.vimrc"
+  
+- name: "Railscasts colors: prepare git repo"
+  git: >
+    repo=https://github.com/jpo/vim-railscasts-theme.git
+    dest="{{ homedir }}/.vim/railscasts"
+
+- name: "Railscasts colors: mkdir"
+  file: >
+    state=directory
+    dest="{{ homedir }}/.vim/colors"
+
+- name: "Railscasts colors: link dir"
+  file: >
+    state=link
+    src="{{ homedir }}/.vim/railscasts/colors/railscasts.vim"
+    path="{{ homedir }}/.vim/colors/railscasts.vim"
+
+- name: Vundle prepare
+  git: >
+    repo=https://github.com/gmarik/vundle.git
+    dest="{{ homedir }}/.vim/bundle/vundle"
+
+- name: Vundle install
+  shell: "vim +BundleInstall! +BundleClean +qall"
+
+- name: Compile command-t
+  shell: "ruby extconf.rb && make"
+  args:
+    chdir: "{{ homedir }}/.vim/bundle/command-t/ruby/command-t"

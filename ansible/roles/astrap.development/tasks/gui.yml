@@ -1,0 +1,102 @@
+- name:  Install dconf-editor
+  become: true
+  apt: >
+    state=installed
+    pkg="dconf-editor"
+
+- name: Uninstall Unity webapps
+  become: true
+  apt: >
+    state=absent
+    pkg="unity-webapps-{{item}}"
+  with_items:
+    - amazoncloudreader  
+    - bbcnews
+    - cnn-news
+    - deezer
+    - deviantart
+    - facebookmessenger
+    - gmail
+    - googlecalendar
+    - googledocs
+    - googlenews
+    - googleplus
+    - googleplusgames
+    - grooveshark
+    - hulu-player
+    - lastfm-radio
+    - launchpad
+    - librefm
+    - linkedin
+    - livemail
+    - mail-ru
+    - newsblur
+    - pandora
+    - qq-mail
+    - reddit
+    - tumblr
+    - twitter
+    - vkcom
+    - wordpress
+    - wordpress-com
+    - yahoomail
+    - yahoonews
+    - yandex-music
+    - yandexmail
+    - yandexmusic
+    - yandexnews
+    - youtube
+
+# TODO: not really sure if we want to remove that
+# - name: Uninstall Unity lenses
+#   become: true
+#   apt: >
+#     state=absent
+#     pkg="unity-lens-{{item}}"
+#   with_items:
+#   - music
+#   - photos
+#   - video
+
+- name: Uninstall Unity scopes
+  become: true
+  apt: >
+    state=absent
+    pkg="unity-lens-{{item}}"
+  with_items:
+  - music
+  - photos
+  - video
+  - audacious
+  - calculator
+  - chromiumbookmarks
+  - clementine
+  - colourlovers
+  - devhelp
+  - firefoxbookmarks
+  - gdrive
+  - gmusicbrowser
+  - gourmet
+  - guayadeque
+  - manpages
+  - musicstores
+  - musique
+  - openclipart
+  - texdoc
+  - tomboy
+  - video-remote
+  - virtualbox
+  - yelp
+  - zotero
+
+# TODO: Gsettings module is not yet included in Ansible at the moment:
+# https://github.com/ansible/ansible-modules-extras/pull/1055
+- name: Disallow Unity integrations
+  shell: "gsettings set com.canonical.unity.webapps integration-allowed false"
+
+- name: Disallow all domains for Unity
+  shell: "gsettings set com.canonical.unity.webapps allowed-domains []"
+
+- name: Disallow remote content in Unity Lenses
+  shell: "gsettings set com.canonical.Unity.Lenses remote-content-search 'none'"
+

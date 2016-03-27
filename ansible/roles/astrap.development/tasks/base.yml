@@ -1,0 +1,6 @@
+- name: Install basic packages
+  apt:  update_cache=yes cache_valid_time=3600 state=installed pkg=git,tree,htop,sysstat,nmap,powertop,ecryptfs-utils,iotop,smartmontools,ifstat,colordiff,ruby-dev
+  become: true
+
+- name: Create base astrap dir
+  file: path="{{ astrap_dir }}" state=directory 

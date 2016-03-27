@@ -1,0 +1,15 @@
+- name: Install GVim
+  become: true
+  apt: pkg="vim-gnome" state="installed"
+
+- name: Prepare .gvimrc
+  template: >
+    src=gvimrc.j2
+    dest="{{astrap_dir}}/.gvimrc"
+
+- name: Install .gvimrc
+  file: >
+    state=link
+    src="{{astrap_dir}}/.gvimrc"
+    dest="{{homedir}}/.gvimrc"
+
