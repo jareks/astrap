@@ -100,3 +100,10 @@
 - name: Disallow remote content in Unity Lenses
   shell: "gsettings set com.canonical.Unity.Lenses remote-content-search 'none'"
 
+- name: Disable apport
+  become: true
+  lineinfile: >
+    dest="/etc/default/apport"
+    regexp="^enabled="
+    line="enabled=0"
+
