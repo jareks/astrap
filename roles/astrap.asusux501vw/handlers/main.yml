@@ -1,0 +1,7 @@
+---
+# handlers file for astrap.asusux501vw
+- name: update-grub
+  become: true
+  command: update-grub
+  failed_when: ('error' in update_grub_register.stderr)
+  register: update_grub_register

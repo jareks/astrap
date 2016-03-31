@@ -1,0 +1,12 @@
+---
+# tasks file for astrap.asusux501vw
+- name: set acpi_backlight=native to fix setting screen brightness
+  become: true
+  lineinfile:
+    dest=/etc/default/grub
+    regexp="^GRUB_CMDLINE_LINUX_DEFAULT="
+    line='GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=native acpi_osi="'
+  notify: update-grub
+  tags:
+    - grub
+
