@@ -46,3 +46,7 @@
 - include: gui_skype.yml
   when:    use_gui
   tags:    [gui,skype]
+
+- include: gui_dropbox.yml
+  when:    use_gui
+  tags:    [gui,dropbox]

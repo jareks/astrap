@@ -1,4 +1,4 @@
-- name: "GUI: google chrome - authorize keys"
+- name: "GUI: google chrome - authorize key"
   become: True
   apt_key: id=7fac5991 url=https://dl.google.com/linux/linux_signing_key.pub state=present
 - name: "GUI: google chrome - add stable repo"

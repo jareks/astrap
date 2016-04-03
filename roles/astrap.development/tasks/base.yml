@@ -1,5 +1,9 @@
 - name: Install basic packages
-  apt:  update_cache=yes cache_valid_time=3600 state=installed pkg=git,tree,htop,sysstat,nmap,powertop,ecryptfs-utils,iotop,smartmontools,ifstat,colordiff,ruby-dev,build-essential,automake,lm-sensors,jq,python-dev
+  apt: >
+    update_cache=yes
+    cache_valid_time=3600
+    state=installed
+    pkg=git,tree,htop,sysstat,nmap,powertop,ecryptfs-utils,iotop,smartmontools,ifstat,colordiff,ruby-dev,build-essential,automake,lm-sensors,jq,python-dev,python-gpgme
   become: true
 
 - name: Create base astrap dir

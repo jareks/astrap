@@ -1,0 +1,10 @@
+- name: "GUI: dropbox - authorize key"
+  become: True
+  apt_key: id=1C61A2656FB57B7E4DE0F4C1FC918B335044912E keyserver=pgp.mit.edu
+- name: "GUI: dropbox - add repo"
+  become: True
+  apt_repository: repo='deb http://linux.dropbox.com/ubuntu {{ansible_distribution_release}} main' state=present
+- name: "GUI: dropbox - install"
+  become: True
+  apt: package=dropbox state=present update_cache=true
+
