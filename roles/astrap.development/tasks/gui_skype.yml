@@ -1,0 +1,6 @@
+- name: "GUI Skype: add ubuntu partnerrepository"
+  become: true
+  apt_repository: repo='deb http://archive.canonical.com/ubuntu {{ansible_distribution_release}} partner' state=present
+- name: "GUI Skype: install packages"
+  become: true
+  apt: pkg=skype state=installed update_cache=True
