@@ -2,7 +2,7 @@
   become: true
   apt: >
     state=installed
-    pkg="dconf-editor,mesa-utils"
+    pkg="dconf-editor,gparted,mesa-utils"
 
 - name: Uninstall Unity webapps
   become: true
