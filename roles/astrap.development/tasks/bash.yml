@@ -4,7 +4,7 @@
     dest="{{astrap_dir}}/.{{item}}"
   with_items:
     - bash_ext
-    - bash_local
+    - bash_ext_local
 
 - name: Install bash configs
   file: >
@@ -13,13 +13,10 @@
     dest="{{homedir}}/.{{item}}"
   with_items:
     - bash_ext
-    - bash_local
+    - bash_ext_local
 
 - name: Add bash configs to .bashrc
   lineinfile: >
-    regexp="^source ~/.{{item}}"
-    line="source ~/.{{item}}"
+    regexp="^for bash_file in ~/.bash_ext"
+    line="for bash_file in ~/.bash_ext*; do source $bash_file; done"
     dest="{{homedir}}/.bashrc"
-  with_items:
-    - bash_ext
-    - bash_local

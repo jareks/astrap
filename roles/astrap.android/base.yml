@@ -14,14 +14,5 @@
 
 - name: "Android: prepare bash configuration file"
   template: >
-    dest={{homedir}}/.bash_android
-    src=bash_android.j2
-
-# TODO: this is kinda stupid, as we edit template file created earlier.
-# However I have no idea how could we do it differently without creating dependencies between
-# this and bash_ext roles?
-- name: "Android: install bash configuration file"
-  lineinfile: >
-    line="source $HOME/.bash_android"
-    dest={{homedir}}/.bash_ext
-    state=present
+    dest={{homedir}}/.bash_ext_android
+    src=bash_ext_android.j2
