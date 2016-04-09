@@ -1,0 +1,7 @@
+---
+# defaults file for astrap.android
+
+android_sdk:
+  url: http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+  filename: android-sdk_r24.4.1-linux.tgz
+android_ndks: []

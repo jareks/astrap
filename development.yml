@@ -1,5 +1,13 @@
 ---
 - hosts: localhost
   roles:
-    - role: astrap.development    
+    - role: astrap.development
 
+- hosts: localhost
+# when: TODO: autodetect computer model?
+  roles:
+    - role: astrap.asusux501vw
+
+- hosts: localhost
+  roles:
+    - role: astrap.android

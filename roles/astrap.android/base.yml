@@ -1,0 +1,27 @@
+---
+- name: "Android: get SDKs"
+  get_url: url={{android_sdk.url}} dest={{astrap_software_dir}}/{{android_sdk.filename}}
+
+- name: "Android: unpack SDK"
+  unarchive: >
+    src={{astrap_software_dir}}/{{android_sdk.filename}}
+    dest={{astrap_software_dir}}
+    creates={{astrap_software_dir}}/android-sdk-linux
+
+- name: "Android: get NDKs"
+  get_url: url={{item}} dest={{astrap_software_dir}}
+  with_items: '{{android_ndks}}'
+
+- name: "Android: prepare bash configuration file"
+  template: >
+    dest={{homedir}}/.bash_android
+    src=bash_android.j2
+
+# TODO: this is kinda stupid, as we edit template file created earlier.
+# However I have no idea how could we do it differently without creating dependencies between
+# this and bash_ext roles?
+- name: "Android: install bash configuration file"
+  lineinfile: >
+    line="source $HOME/.bash_android"
+    dest={{homedir}}/.bash_ext
+    state=present
