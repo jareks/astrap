@@ -1,0 +1,9 @@
+- name: "GUI: spotify - authorize key"
+  become: True
+  apt_key: id=BBEBDCB318AD50EC6865090613B00F1FD2C19886 keyserver=keyserver.ubuntu.com state=present
+- name: "GUI: spotify - add stable repo"
+  become: True
+  apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present # filename='spotify'
+- name: "GUI: spotify - install"
+  become: True
+  apt: package=spotify-client state=present update_cache=true

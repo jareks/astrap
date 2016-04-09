@@ -50,3 +50,7 @@
 - include: gui_dropbox.yml
   when:    use_gui
   tags:    [gui,dropbox]
+
+- include: gui_spotify.yml
+  when:    use_gui
+  tags:    [gui,spotify]
