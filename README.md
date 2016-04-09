@@ -11,6 +11,3 @@ It is recommended to install AStrap into ~/astrap which generates all your local
 Notes
 =====
 
-Temporary Swapping caps lock and escape
------------------------------
-setxkbmap -option caps:swapescape

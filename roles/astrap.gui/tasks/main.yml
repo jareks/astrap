@@ -1,0 +1,25 @@
+---
+# tasks file for astrap.gui
+- include: gui.yml
+  when:    use_gui
+  tags:    [gui]
+
+- include: gui_vim.yml
+  when:    use_gui
+  tags:    [gui]
+
+- include: gui_google-chrome.yml
+  when:    use_gui
+  tags:    [gui,google_chrome]
+
+- include: gui_skype.yml
+  when:    use_gui
+  tags:    [gui,skype]
+
+- include: gui_dropbox.yml
+  when:    use_gui
+  tags:    [gui,dropbox]
+
+- include: gui_spotify.yml
+  when:    use_gui
+  tags:    [gui,spotify]

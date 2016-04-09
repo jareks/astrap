@@ -3,6 +3,16 @@
   roles:
     - role: astrap.development
 
+- hosts: all
+  tasks:
+    - group_by: key=use_gui_{{ use_gui }}
+      always_run: True
+      tags: [always]
+
+- hosts: use_gui_True
+  roles:
+    - role: astrap.gui
+
 - hosts: localhost
   tasks:
     - name: Identify Hardware Product Name

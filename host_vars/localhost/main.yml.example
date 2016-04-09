@@ -5,6 +5,10 @@ use_nodejs:       True
 use_java:         True
 use_gui:          True
 
+homedir:             "/home/{{ ansible_user_id }}"
+astrap_dir:          "{{homedir}}/astrap/local"
+astrap_software_dir: "{{homedir}}/software/"
+
 git_name:  John Doe
 git_email: john.doe@example.com
 
