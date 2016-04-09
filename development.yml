@@ -4,7 +4,19 @@
     - role: astrap.development
 
 - hosts: localhost
-# when: TODO: autodetect computer model?
+  tasks:
+    - name: Identify Hardware Product Name
+      shell: "dmidecode | grep -A 5 'System Information' | sed -n 's/^\\s*Product Name: //p'"
+      become: True
+      register: product_name
+      always_run: True
+      changed_when: False
+      tags: [always]
+    - group_by: key=product_{{ product_name.stdout }}
+      always_run: True
+      tags: [always]
+
+- hosts: product_N501VW
   roles:
     - role: astrap.asusux501vw
 
