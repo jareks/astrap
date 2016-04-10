@@ -38,7 +38,7 @@ Fixing brightness controler on ketnel 4.2:
 License
 -------
 
-BSD
+GPLv3
 
 Author Information
 ------------------
