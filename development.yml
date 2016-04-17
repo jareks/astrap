@@ -8,6 +8,9 @@
     - group_by: key=use_gui_{{ use_gui }}
       always_run: True
       tags: [always]
+    - group_by: key=use_rvm_{{ use_rvm }}
+      always_run: True
+      tags: [always]
 
 - hosts: use_gui_True
   roles:
@@ -33,3 +36,14 @@
 - hosts: localhost
   roles:
     - role: astrap.android
+
+- hosts: use_rvm_True
+  roles:
+    - role: rvm1-ansible
+      tags: rvm
+      rvm1_user: "{{ansible_user_id}}"
+      rvm1_rubies: [ruby-2.2.4]
+      rvm1_install_flags: '--auto-dotfiles --user-install'
+      rvm1_install_path: '/home/{{ ansible_user_id }}/.rvm'
+
+
