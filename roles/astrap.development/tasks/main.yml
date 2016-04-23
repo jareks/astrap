@@ -29,3 +29,7 @@
   when:    use_java
   tags:    [java]
 
+- include: docker.yml
+  when:    use_docker
+  tags:    [docker]
+
