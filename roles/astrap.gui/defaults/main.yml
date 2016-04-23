@@ -1,2 +1,2 @@
----
-# defaults file for astrap.gui
+# 2016-04-23: no xenial dropbox repo yet
+dropbox_release: "{{ 'wily' if ansible_distribution_release == 'xenial' else ansible_distribution_release }}"
