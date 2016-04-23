@@ -23,3 +23,7 @@
 - include: gui_spotify.yml
   when:    use_gui
   tags:    [gui,spotify]
+
+- include: gui_terminal.yml
+  when:    use_gui
+  tags:    [gui,gnome_terminal]
