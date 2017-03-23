@@ -106,6 +106,9 @@
 - name: Auto-hide launcher
   shell: "dconf write /org/compiz/profiles/unity/plugins/unityshell/launcher-hide-mode 1"
 
+- name: set default terminal to gnome-terminal
+  shell: "dconf write /org/gnome/desktop/applications/terminal/exec 'gnome-terminal'"
+
 - name: Disable apport
   become: true
   lineinfile: >

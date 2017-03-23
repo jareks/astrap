@@ -17,6 +17,36 @@ Conventions
    It is recommended to use a source control software for ~/astrap/local dir to track changes.
 3. You can configure installed software in `host_vars/localhost/main.yml` file  
 
+
+Sample localhost config
+-----------------------
+Quick and dirty way to configure is to put everything into _localhost_ file:
+```
+localhost ansible_connection=local astrap_dir=/home/user/astrap/local homedir=/home/user git_name="Your Name" git_email="email@example.com" use_bash=True use_vim=True use_vim_in_shell=True use_docker=False use_java=False use_nodejs=False use_gui=True use_rvm=True use_android=False
+```
+Please note, that as of writing it needs to be single line:
+https://github.com/ansible/ansible/issues/14358
+
+Another (proper) way is to define confiuration in host_vars/localhost/main.yml
+
+```
+astrap_dir: /home/user/astrap/local
+homedir: /home/user
+git_name: "Your Name"
+git_email: "email@example.com"
+use_bash: True
+use_vim: True
+use_vim_in_shell: True
+use_docker: True
+use_java: False
+use_nodejs: False
+use_gui: True
+use_rvm: True
+use_android: False
+
+```
+
+
 Running
 -------
 

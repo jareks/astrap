@@ -39,10 +39,10 @@
 
 - hosts: use_rvm_True
   roles:
-    - role: rvm1-ansible
+    - role: rvm_io.ruby
       tags: rvm
       rvm1_user: "{{ansible_user_id}}"
-      rvm1_rubies: [ruby-2.2.4]
+      rvm1_rubies: [ruby-2.3.1]
       rvm1_install_flags: '--auto-dotfiles --user-install'
       rvm1_install_path: '/home/{{ ansible_user_id }}/.rvm'
 

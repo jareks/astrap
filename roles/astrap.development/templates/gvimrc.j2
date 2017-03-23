@@ -8,3 +8,8 @@ set guioptions-=l
 set guioptions-=r
 set guioptions-=b
 
+" Maximixze window on start
+augroup maximizewindow 
+    autocmd! 
+    autocmd VimEnter * call system('wmctrl -i -b add,maximized_vert,maximized_horz -r '.v:windowid)
+augroup END
