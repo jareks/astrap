@@ -47,10 +47,18 @@ use_android: False
 ```
 
 
+User only mode
+--------------
+By default AStrap configures both system (installs packages, etc) and user's configuration (dotfiles). However you can set:
+`user_only: True`
+to prevent AStrap from modyfying system and to run only user specific items.
+
+
 Running
 -------
 
 ```
+ansible-galaxy install -r requirements.yml
 ansible-playbook -i localhost development.yml --ask-sudo-pass -CD
 ```
 

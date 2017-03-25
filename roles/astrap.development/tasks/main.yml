@@ -22,14 +22,14 @@
   tags:    [vim_in_shell]
 
 - include: nodejs.yml
-  when:    use_nodejs
+  when:    use_nodejs and user_only is not defined
   tags:    [nodejs]
 
 - include: java.yml
-  when:    use_java
+  when:    use_java and user_only is not defined
   tags:    [java]
 
 - include: docker.yml
-  when:    use_docker
+  when:    use_docker and user_only is not defined
   tags:    [docker]
 

@@ -89,26 +89,6 @@
   - yelp
   - zotero
 
-# TODO: Gsettings module is not yet included in Ansible at the moment:
-# https://github.com/ansible/ansible-modules-extras/pull/1055
-- name: Disallow Unity integrations
-  shell: "gsettings set com.canonical.unity.webapps integration-allowed false"
-
-- name: Disallow all domains for Unity
-  shell: "gsettings set com.canonical.unity.webapps allowed-domains []"
-
-- name: Disallow remote content in Unity Lenses
-  shell: "gsettings set com.canonical.Unity.Lenses remote-content-search 'none'"
-
-- name: Swap caps-lock and escape
-  shell: "dconf write '/org/gnome/desktop/input-sources/xkb-options' \"['caps:swapescape']\""
-
-- name: Auto-hide launcher
-  shell: "dconf write /org/compiz/profiles/unity/plugins/unityshell/launcher-hide-mode 1"
-
-- name: set default terminal to gnome-terminal
-  shell: "dconf write /org/gnome/desktop/applications/terminal/exec 'gnome-terminal'"
-
 - name: Disable apport
   become: true
   lineinfile: >

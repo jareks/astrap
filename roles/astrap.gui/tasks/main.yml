@@ -1,6 +1,10 @@
 ---
 # tasks file for astrap.gui
 - include: gui.yml
+  when:    use_gui and user_only is not defined
+  tags:    [gui]
+
+- include: gui_user.yml
   when:    use_gui
   tags:    [gui]
 
@@ -9,19 +13,19 @@
   tags:    [gui]
 
 - include: gui_google-chrome.yml
-  when:    use_gui
+  when:    use_gui and user_only is not defined
   tags:    [gui,google_chrome]
 
 - include: gui_skype.yml
-  when:    use_gui
+  when:    use_gui and user_only is not defined
   tags:    [gui,skype]
 
 - include: gui_dropbox.yml
-  when:    use_gui
+  when:    use_gui and user_only is not defined
   tags:    [gui,dropbox]
 
 - include: gui_spotify.yml
-  when:    use_gui
+  when:    use_gui and user_only is not defined
   tags:    [gui,spotify]
 
 - include: gui_terminal.yml

@@ -1,6 +1,7 @@
 - name: Install GVim
   become: true
   apt: pkg="vim-gnome" state="installed"
+  when: user_only is not defined
 
 - name: Prepare .gvimrc
   template: >

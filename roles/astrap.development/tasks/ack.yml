@@ -3,6 +3,7 @@
   apt: >
     state=installed
     pkg=ack-grep
+  when: user_only is not defined
 
 - name: Prepare ackrc
   template: >

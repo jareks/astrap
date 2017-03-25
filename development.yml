@@ -25,9 +25,11 @@
       always_run: True
       changed_when: False
       tags: [always]
+      when: user_only is not defined
     - group_by: key=product_{{ product_name.stdout }}
       always_run: True
       tags: [always]
+      when: user_only is not defined
 
 - hosts: product_N501VW
   roles:
