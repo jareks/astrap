@@ -6,7 +6,7 @@
 - name: "Java: accept license"
   become: True
   shell: "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections"
-  when: autoaccept_java_license
+  when: autoaccept_java_license is defined and autoaccept_java_license
 
 - name: "Java: installing"
   become: True

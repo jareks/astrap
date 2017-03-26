@@ -1,2 +1,2 @@
-# 2016-04-23: no xenial dropbox repo yet
-dropbox_release: "{{ 'wily' if ansible_distribution_release == 'xenial' else ansible_distribution_release }}"
+# 2017-03-26: no yakkety dropbox repo yet
+dropbox_release: "{{ 'xenial' if ansible_distribution_release == 'yakkety' else ansible_distribution_release }}"
