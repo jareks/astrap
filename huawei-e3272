@@ -1,0 +1,10 @@
+Append to: /etc/usb_modeswitch.conf
+```
+# Hauweii e3772
+TargetVendor=0x12d1
+TargetProductList="14db,14dc"
+HuaweiNewMode=1
+NoDriverLoading=1
+```
+
+sudo usb_modeswitch -v 12d1 -p 14fe -c /etc/usb_modeswitch.conf
