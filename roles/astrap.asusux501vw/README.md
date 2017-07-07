@@ -1,6 +1,13 @@
 Role Name
 =========
 
+TODO: disable /sys/firmware/acpi/interrupts/gpe61 interrupt from using one cpu constantly:
+https://marclewis.com/2016/03/27/installing-ubuntu-15-10-on-the-asus-zenbook-pro-ux501vw-redux/
+http://askubuntu.com/questions/176565/why-does-kworker-cpu-usage-get-so-high
+
+echo "disable" > /sys/firmware/acpi/interrupts/gpe61
+
+
 A brief description of the role goes here.
 
 Requirements
