@@ -1,0 +1,7 @@
+*.un~
+*.swp
+*.swo
+tags
+.ackrc
+.ctags
+.ignore

@@ -1,5 +1,0 @@
----
-- include: base.yml
-  when: use_android
-  tags:
-    - android

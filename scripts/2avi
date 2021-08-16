@@ -1,0 +1,3 @@
+#!/bin/bash
+
+avconv -i "$1" -c:v libx264 -c:a libmp3lame "${1%.*}.avi"

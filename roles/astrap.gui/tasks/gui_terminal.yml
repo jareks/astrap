@@ -1,7 +1,0 @@
-- name: "Gnome-terminal: find default profile"
-  shell: "dconf list /org/gnome/terminal/legacy/profiles:/"
-  register: gnome_terminal_profile
-  always_run: True
-
-- name: "Gnome-terminal: set login-shell"
-  shell: "dconf write /org/gnome/terminal/legacy/profiles:/{{gnome_terminal_profile.stdout}}login-shell true"

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+WIDTH=800
+HEIGHT=600
+
+v4l2-ctl --device=/dev/video0 --set-fmt-video=width=$WIDTH,height=$HEIGHT,pixelformat=H264
+cvlc v4l2:///dev/video0:chroma=h264:width=$WIDTH:height=$HEIGHT --sout file/avi{mux=mp4}:"$HOME/Videos/Webcam/webrec"-"$(date +%F-%T)".mp4 --demux h264 -vvv --sout-x264-preset=slow
+#sudo dd if=/dev/video0 bs=1M of="$HOME/Videos/Webcam/webrec"-"$(date +%F-%T)"
+# encoding after:
+#  avconv -i webrec-2015-06-07-21  -c:v libx264 -crf 30  2015-06-07-21.avi 

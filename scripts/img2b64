@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+
+require 'base64'
+require 'net/http'
+
+img = Net::HTTP.get(URI.parse(ARGV[0]))
+puts Base64.encode64(img)
+

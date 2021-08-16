@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+while line = readline
+  puts line.gsub(/^\| /,'').gsub(/ \|$/, '').split(/ +\| +/).join(",")
+end

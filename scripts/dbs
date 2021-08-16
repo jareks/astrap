@@ -1,0 +1,14 @@
+#!/bin/bash
+# Mount encrypted directory on UbuntuOne
+
+DIR=/var/stuff/secret-enc
+MOUNTOPTIONS="ecryptfs_key_bytes=16,ecryptfs_cipher=aes,ecryptfs_enable_filename_crypto=y,ecryptfs_unlink_sigs,ecryptfs_passthrough=n,passphrase_passwd=Qwej666,no_sig_cache,ecryptfs_fnek_sig=8618443c8d9b163c"
+
+if [ ! -e "$DIR" ] 
+then
+  mkdir "$DIR"
+fi
+
+sudo mount -t ecryptfs -o $MOUNTOPTIONS "$DIR" /var/stuff/secret
+cd "$DIR"
+

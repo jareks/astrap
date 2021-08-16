@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# requires syslinux and mbr packages to be installed
+# to test usb afterwards you can use:
+# qemu-system-x86_64 -hda /dev/sdx
+# if above command doesnt work - it migt be because your system
+# cached soemthing - reboot might help
+# WARNING: this usb drive wont work in UEFI mode!
+
+ISO_FILE=Fatdog64-630.iso
+ISO_URL=http://distro.ibiblio.org/fatdog/iso/
+
+wget -O /tmp/$ISO_FILE ${ISO_URL}${ISO_FILE}
+sudo mount -o loop /tmp/$ISO_FILE /mnt
+
+
+echo where to copy files? (eg. /media/$USER/1234-3333)
+read copy_path
+
+cp -r /mnt/* $copy_path
+cd $copy_path
+mv isolinux.cfg syslinux.cfg
+mv isolinux.bin syslinux.bin
+syslinux -s $copy_path
+
+# TODO: detect from mount
+echo which device to install MBR? (eg. /dev/sdd)
+read mbr_device
+install-mbr $mbr_device

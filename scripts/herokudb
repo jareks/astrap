@@ -1,0 +1,3 @@
+#!/bin/bash
+
+heroku config -a $1 | awk '/^DATABASE_URL/ { print $2 }'
