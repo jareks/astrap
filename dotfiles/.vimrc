@@ -1,11 +1,5 @@
 set nocompatible
 
-" setup Vundle
-filetype off
-" set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
-" Plug 'gmarik/vundle'
-
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Run to add autocompletition: CocInstall coc-json coc-html coc-tsserver cos-css coc-solargraph coc-eslint coc-pyright coc-css coc-eslint
@@ -135,7 +129,7 @@ command C !ctags -R
 "       \    exe "normal g`\"" |
 "       \  endif
 
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 
 " " syntax higlight for .jst.ejs
 " au BufNewFile,BufRead *.ejs set filetype=html
@@ -164,6 +158,11 @@ map <leader>c :s/[_-]\+\([a-z0-9]\)/\u\1/g<CR>
 map <leader>c "+y
 " Paste from system clipboard
 map <leader>v "+p
+
+" CtrlP for fuzzy finding files
+let g:ctrlp_custom_ignore = 'node_modules\|.git'
+" Create .project_root file in monorepos to search only in subproject
+let g:ctrlp_root_markers = ['.project_root']
 
 map <leader>t :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
@@ -275,3 +274,7 @@ endfunction
 map <leader>r :call RenameFile()<cr>
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" dont use 'tags' filename for ctags as it is often conflicting name. Make
+" sure your you ctags is configured to output to .ctags file for this to work!
+set tags=./.ctags,.ctags

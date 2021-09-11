@@ -8,6 +8,6 @@ set guioptions-=l
 set guioptions-=r
 set guioptions-=b
 
-colorscheme industry
+colorscheme badwolf
 
 " set guifont=Monospace\ 10

@@ -1,0 +1,3 @@
+--exclude=node_modules
+--exclude=**/public/packs
+--exclude=**/public/packs-test
