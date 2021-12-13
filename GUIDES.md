@@ -9,3 +9,6 @@ xrandr --newmode  "2560x1440R"  241.50  2560 2608 2640 2720  1440 1443 1448 1481
 xrandr --addmode HDMI-1-1  "2560x1440R"
 ```
 
+### Moving & resizing windows around with keyboard
+It is very useful to quickly set window to occupy only selected part of screen (eg. left half). Check out Put Windows gnome extentions to do that.
+For Ubuntu 21.10 add "40" ~/.local/share/gnome-shell/extensions/putWindow@clemens.lab21.org/metadata.json under "shell-version" to make it work.

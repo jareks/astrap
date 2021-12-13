@@ -6,3 +6,4 @@
 .ignore
 .project_root
 .solargraph.yml
+.envrc

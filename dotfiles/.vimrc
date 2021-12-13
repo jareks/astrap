@@ -166,8 +166,21 @@ let g:ctrlp_root_markers = ['.project_root']
 
 map <leader>t :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
-"CommandT with flush
-"map <leader>y :CommandTFlush<CR>:CommandT<CR>
+
+"Go to next error
+nmap <silent> <leader>e :call CocAction('diagnosticNext')<cr>
+nmap <silent> <leader>E :call CocAction('diagnosticPrevious')<cr>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
 
 " Open command mode by hitting semicolon:
 nnoremap ; :
