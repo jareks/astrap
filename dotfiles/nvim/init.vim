@@ -17,6 +17,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set expandtab
@@ -58,7 +59,7 @@ map <leader>v "+p
 " let g:ctrlp_custom_ignore = 'node_modules\|.git'
 " Create .project_root file in monorepos to search only in subproject
 " let g:ctrlp_root_markers = ['.project_root']
-map <leader>t :FZF<CR>
+map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
 
 " Search for word under cursor
@@ -85,3 +86,18 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Trim spaces at line ends
+autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e
