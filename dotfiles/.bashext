@@ -14,6 +14,7 @@ alias ccdiff="colordiff -u1"
 alias sdo="sudo docker"
 alias dfh='df -h -x squashfs -x tmpfs -x devtmpfs'
 alias k=kubectl
+alias ke='kubectl get events --sort-by=".lastTimestamp"'
 alias m8="microk8s.kubectl"
 
 function g {
@@ -21,6 +22,8 @@ function g {
   sleep 0.3
   wmctrl -r GVIM -b add,maximized_vert,maximized_horz
 }
+
+alias n="nvim ."
 
 # Colors
 txtblk='\e[0;30m' # Black - Regular

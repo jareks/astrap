@@ -7,7 +7,8 @@ map <leader>c "+y
 map <leader>v "+p
 
 call plug#begin()
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lspconfig' " using CoC instead
+
 Plug 'bkad/camelcasemotion'
 
 " On ubuntu 21.10 default fzf is 0.24, while newest one is 0.28. To auto-update:
@@ -18,12 +19,20 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
+Plug 'mhartington/oceanic-next'
 call plug#end()
 
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set nowrap
+
+"" color scheme Oceanic Next
+set termguicolors
+colorscheme OceanicNext
+" darker backgrounds than in original Oceanic Next
+hi Normal guibg=#080c0f
+hi EndOfBuffer guibg=#05080a
 
 " ,w jumps one camel-case word
 let g:camelcasemotion_key=','
@@ -59,6 +68,7 @@ map <leader>v "+p
 " let g:ctrlp_custom_ignore = 'node_modules\|.git'
 " Create .project_root file in monorepos to search only in subproject
 " let g:ctrlp_root_markers = ['.project_root']
+let b:coc_root_patterns = ['.project_root', '.git']
 map <leader>t :GFiles<CR>
 map <leader>b :Buffers<CR>
 
@@ -101,3 +111,8 @@ endfunction
 
 " Trim spaces at line ends
 autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" Fix background color of CoC Error Floats. By default this is taken from:
+" :hi Pmenu
+hi CocFloating ctermbg=0
+hi CocErrorFloat ctermbg=0
