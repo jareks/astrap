@@ -15,7 +15,8 @@ ln -s $PWD/../dotfiles/nvim/init.vim ~/.config/nvim
 
 # TODO: run in neovim
 
-# :CocInstall coc-prettier
+# :CocInstall coc-prettier coc-tsserver coc-eslint @yaegassy/coc-tailwindcss3
+# :CocInstall coc-pyright
 # :CocConfig
 # {
 #   "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"]

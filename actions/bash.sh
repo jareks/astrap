@@ -2,6 +2,7 @@
 
 set -xe
 
+touch $HOME/.bashext
 echo "source $HOME/.bashext" >> $HOME/.bashrc
 
 # GIT

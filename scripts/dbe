@@ -3,7 +3,8 @@
 
 set -e
 
-DIR=/home/$USER/Dropbox/encrypted
+#DIR=/home/$USER/Dropbox/encrypted
+DIR=/home/$USER/encrypted
 MOUNTOPTIONS="ecryptfs_key_bytes=16,ecryptfs_cipher=aes,ecryptfs_enable_filename_crypto=y,ecryptfs_unlink_sigs,ecryptfs_passthrough=n"
 
 if [ ! -e "$DIR" ] 

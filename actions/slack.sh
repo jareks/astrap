@@ -2,4 +2,4 @@
 
 set -xe
 
-sudo snap install --classic slack
+sudo snap install slack

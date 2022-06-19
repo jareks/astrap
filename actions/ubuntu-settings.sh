@@ -16,6 +16,10 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 # Holding keyboard key is lame, but we all have our bad days
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 45
 
+# Disable alert sound
+gsettings set org.gnome.desktop.sound event-sounds false
+
+
 # Cleanup unwanted packages
 sudo apt remove thunderbird -y
 
