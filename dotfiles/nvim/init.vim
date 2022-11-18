@@ -18,7 +18,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
-Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'   " use 'gc' to comment
 Plug 'mhartington/oceanic-next'
 call plug#end()
 
@@ -62,6 +62,8 @@ map <leader>r :call RenameFile()<cr>
 map <leader>c "+y
 " Paste from system clipboard
 map <leader>v "+p
+ " Replace word under coursor
+map <leader>s "ayiw:%s/<C-R>a/
 
 " TODO: do same for FZF
 " CtrlP for fuzzy finding files
@@ -70,6 +72,7 @@ map <leader>v "+p
 " let g:ctrlp_root_markers = ['.project_root']
 let b:coc_root_patterns = ['.project_root', '.git']
 map <leader>t :GFiles<CR>
+map <leader>T :Files<CR>
 map <leader>b :Buffers<CR>
 
 " Search for word under cursor
@@ -95,6 +98,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <F2> <Plug>(coc-rename)
 
 nmap <F2> <Plug>(coc-rename)
 
