@@ -20,7 +20,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'tpope/vim-commentary'   " use 'gc' to comment
 Plug 'mhartington/oceanic-next'
+
+" Svelte support with 2 other recommended plugins
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
 call plug#end()
+
+" vim-svelte requires explicit enablement of typescript
+let g:svelte_preprocessors = ['typescript']
 
 set expandtab
 set tabstop=2
@@ -83,6 +92,7 @@ nmap <C-a> :Ag <C-R><C-W><CR>
 "
 " use <cr> to select autocomplete suggestion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
