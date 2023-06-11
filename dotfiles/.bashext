@@ -6,16 +6,18 @@ alias db="rails db -p"
 alias dbmg="bundle exec rake db:migrate"
 alias dbtp="bundle exec rake db:test:prepare"
 alias dbmgtp="bundle exec rake db:migrate; bundle exec rake db:test:prepare"
-alias jt="python -mjson.tool"
-alias spec="time bundle exec rake spec"
 alias be="bundle exec"
+alias spec="time bundle exec rake spec"
+
+alias jt="python -mjson.tool"
 alias gts="git status"
 alias ccdiff="colordiff -u1"
-alias sdo="sudo docker"
+alias dup="docker-compose up"
 alias dfh='df -h -x squashfs -x tmpfs -x devtmpfs'
 alias k=kubectl
 alias ke='kubectl get events --sort-by=".lastTimestamp"'
 alias m8="microk8s.kubectl"
+alias svba="source venv/bin/activate"
 
 function g {
   gvim .
@@ -88,3 +90,7 @@ complete -F _complete_alias k
 
 # direnv
 eval "$(direnv hook bash)"
+
+if [ -f "$HOME/.bash_local" ]; then
+    source "$HOME/.bash_local"
+fi

@@ -183,4 +183,11 @@ lspconfig.lua_ls.setup {
   }
 }
 
+-- Typescript / Javascript
+-- Install server: npm install -g typescript typescript-language-server
+require'lspconfig'.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 require("luasnip.loaders.from_vscode").load({ include = { "python" } })

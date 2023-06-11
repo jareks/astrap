@@ -32,6 +32,10 @@ vim.keymap.set('n', '<BS>', ':nohlsearch<CR>', { silent = true })
 -- Replace word under coursor
 vim.keymap.set('', '<leader>s', '"ayiw:%s/<C-R>a/')
 
+-- ctrl-s saves file
+vim.keymap.set('n', '<C-s>', '<ESC>:w<CR>', { silent = true })
+vim.keymap.set('i', '<C-s>', '<ESC>:w<CR>', { silent = true })
+
 -- Needs to be set *before* camelcasemotion plugin is loaded
 -- ,w jumps one camel-case word
 vim.g.camelcasemotion_key=','
@@ -96,7 +100,19 @@ require('packer').startup(
         require("which-key").setup({})
       end
     }
+
+    -- Autoomatically insert closing bracket, based on treesitter
+    use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+    }
+    -- TODO: consider integration with nvim-cmp: https://github.com/windwp/nvim-autopairs#you-need-to-add-mapping-cr-on-nvim-cmp-setupcheck-readmemd-on-nvim-cmp-repo
+    --
+
+    -- autoclose html <tags> using treesitter. Supports renaming too.
+    use 'windwp/nvim-ts-autotag'
 	end
 )
+
 
 
