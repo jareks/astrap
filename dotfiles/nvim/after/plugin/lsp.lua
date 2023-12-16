@@ -96,9 +96,7 @@ local on_attach = function(client, bufnr)
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-
+    vim.keymap.set('n', '<space>c', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
 
@@ -114,8 +112,8 @@ local on_attach = function(client, bufnr)
 -- gr: Lists all the references to the symbol under the cursor in the quickfix window. See :help vim.lsp.buf.references().
 -- gs: Displays signature information about the symbol under the cursor in a floating window. See :help vim.lsp.buf.signature_help(). If a mapping already exists for this key this function is not bound.
 -- <F2>: Renames all references to the symbol under the cursor. See :help vim.lsp.buf.rename().
--- <F3>: Format code in current buffer. See :help vim.lsp.buf.format().
--- <F4>: Selects a code action available at the current cursor position. See :help vim.lsp.buf.code_action().
+-- <space>f orginal <F3>: Format code in current buffer. See :help vim.lsp.buf.format().
+-- <space>c original <F4>: Selects a code action available at the current cursor position. See :help vim.lsp.buf.code_action().
 -- gl: Show diagnostics in a floating window. See :help vim.diagnostic.open_float().
 -- [d: Move to the previous diagnostic in the current buffer. See :help vim.diagnostic.goto_prev().
 -- ]d: Move to the next diagnostic. See :help vim.diagnostic.goto_next().

@@ -16,12 +16,5 @@ ln -s $PWD/../dotfiles/nvim/init.vim ~/.config/nvim
 # required for system clipboard to work
 sudo apt-get install xclip
 
-# TODO: run in neovim
-
-# :CocInstall coc-prettier coc-tsserver coc-eslint @yaegassy/coc-tailwindcss3
-# :CocInstall coc-pyright
-# :CocInstall coc-svelte
-# :CocConfig
-# {
-#   "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"]
-# }
+export NPM_PACKAGES=/home/hawk/npm_packages
+npm install -g typescript-language-server typescript
