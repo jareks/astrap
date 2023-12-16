@@ -111,6 +111,19 @@ require('packer').startup(
 
     -- autoclose html <tags> using treesitter. Supports renaming too.
     use 'windwp/nvim-ts-autotag'
+
+
+    -- AI autocompletition
+    use {
+      "Exafunction/codeium.nvim",
+      requires = {
+          "nvim-lua/plenary.nvim",
+          "hrsh7th/nvim-cmp",
+      },
+      config = function()
+          require("codeium").setup({})
+      end
+    }
 	end
 )
 

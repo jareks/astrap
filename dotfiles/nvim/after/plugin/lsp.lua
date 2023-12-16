@@ -66,6 +66,13 @@ cmp.setup({
       end
     end, { "i", "s" }),
     -- ['<C-Space>'] = cmp.mapping.complete(),
+    ['<c-space>'] = cmp.mapping.complete({
+      config = {
+        sources = {
+          { name = 'codeium' }
+        }
+      }
+    })
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -73,7 +80,6 @@ cmp.setup({
     { name = 'luasnip', { use_show_condition = false, show_autosnippets = true } }
   })
 })
-
 
 local on_attach = function(client, bufnr)
     -- check :help lspconfig-keybindings
