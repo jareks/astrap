@@ -10,5 +10,6 @@ sudo apt update
 sudo apt install -y virtualbox
 
 # Requires accepting license terms
-sudo wget 'https://download.virtualbox.org/virtualbox/6.1.26/Oracle_VM_VirtualBox_Extension_Pack-6.1.26.vbox-extpack' -P ~/software
+# sudo wget 'https://download.virtualbox.org/virtualbox/6.1.26/Oracle_VM_VirtualBox_Extension_Pack-6.1.26.vbox-extpack' -P ~/software  # older version
+sudo wget 'https://download.virtualbox.org/virtualbox/6.1.42/Oracle_VM_VirtualBox_Extension_Pack-6.1.42.vbox-extpack' -P ~/software
 echo "Run virtualbox, go to Tools > Preferences > Extensions > Add and select Oracle_VM_VirtualBox_Extension_Pack from ~/software"
