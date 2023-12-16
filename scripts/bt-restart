@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -xe
+
+modprobe -r btusb
+modprobe btusb
+sleep 3
+bluetoothctl show
+
